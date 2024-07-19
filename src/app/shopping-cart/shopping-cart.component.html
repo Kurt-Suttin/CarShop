@@ -1,0 +1,36 @@
+<div class="container shopping-cart bg-dark text-light border mt-5">
+
+  <h2>Your Shopping Cart</h2>
+  <div *ngIf="shoppingCart.cars.length > 0; else emptyCart">
+    <table class="table table-bordered table-striped">
+      <thead>
+        <tr>
+          <th>Car Name</th>
+          <th>Car Model</th>
+          <th>Car Make</th>
+          <th>Car Year</th>
+          <th>Price</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let car of shoppingCart.cars">
+          <td>{{ car.name }}</td>
+          <td>{{ car.model }}</td>
+          <td>{{ car.make }}</td>
+          <td>{{ car.year }}</td>
+          <td>{{ car.price | currency }}</td>
+          <td>
+            <button class="btn btn-danger btn-sm" (click)="removeCarFromCart(car.id)">Remove</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="table-footer">
+<button class="btn btn-warning mb-2"[routerLink]="['/checkout-cart']">Continue to Checkout</button>
+    </div>
+  </div>
+  <ng-template #emptyCart>
+    <p>Your shopping cart is empty.</p>
+  </ng-template>
+</div>

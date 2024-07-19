@@ -1,0 +1,29 @@
+<!-- car modal for adding car to shopping cart -->
+
+<div class="custom-modal">
+  <div class="row justify-content-center ">
+    <div class="col-md-8 mb-4 ">
+      <div class="card bg-dark h-100 text-light">
+        <div class="card-header text-right">
+          <button class="btn btn-light w-100" (click)="closeModal()">Close</button>
+        </div>
+        <img [src]="selectedCar?.image" alt="car image" class="card-img-top">
+        <div class="card-body text-center">
+          <h2>Selected Car</h2>
+          <h5 class="card-title">{{ selectedCar?.name }} {{ selectedCar?.make }}</h5>
+          <p class="card-text">{{ selectedCar?.color }} </p>
+          <p class="card-text">Year: {{ selectedCar?.year }}</p>
+          <p class="card-text">Model: {{ selectedCar?.model }}</p>
+          <p class="card-text">Price: ${{ selectedCar?.price }}</p>
+        </div>
+        <div class="card-footer d-flex justify-content-between">
+          <div class="modal-footer w-100">
+            <button type="button" class="btn btn-success w-100" (click)="addCarToCart()">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  
+  </div>
+</div>
+

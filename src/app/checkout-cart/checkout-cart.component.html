@@ -1,0 +1,47 @@
+<div class="container mt-2 text-dark">
+    <div class="bg-warning rounded fw-bold h2">Checkout</div>
+    <div *ngIf="shoppingCart.cars.length > 0" class="border text-light ">
+      <h3 class="ms-1">Your Cart Items:</h3>
+      <ul class="list-group">
+        <li class="list-group-item ms-1 me-1" *ngFor="let car of shoppingCart.cars">
+          {{ car.name }} - ${{ car.price }}
+        </li>
+      </ul>
+      <div class="h4 mt-1 ms-1">Total Price: ${{ getTotalPrice() }}</div> 
+<hr>
+      <h3 class="ms-1">Payment Information</h3>
+      <form [formGroup]="paymentForm" (ngSubmit)="onSubmit()">
+        <div class="form-group ms-1 me-1">
+          <label for="name">Name on Card</label>
+          <input id="name" class="form-control" formControlName="name" />
+        </div>
+        <div class="form-group ms-1 m-1">
+          <label for="cardNumber">Card Number</label>
+          <input id="cardNumber" class="form-control" formControlName="cardNumber" />
+        </div>
+        <div class="form-group ms-1 me-1">
+          <label for="expiryDate">Expiry Date (MM/YY)</label>
+          <input id="expiryDate" class="form-control" formControlName="expiryDate" />
+        </div>
+        <div class="form-group ms-1 me-1">
+          <label for="cvv">CVV</label>
+          <input id="cvv" class="form-control" formControlName="cvv" />
+        </div>
+        <div class="form-group ms-1 me-1">
+          <label for="address">Billing Address</label>
+          <input id="address" class="form-control" formControlName="address" />
+        </div>
+        <button type="submit" class="btn btn-warning mt-5 mb-1 w-100" [disabled]="paymentForm.invalid" >Submit Payment</button>
+      </form>
+    </div>
+    <div class="container mt-5 bg-dark">
+        <!-- Existing code omitted for brevity -->
+        <div *ngIf="paymentCompleted" class="alert alert-success mt-3" role="alert">
+          Payment completed successfully!
+        </div>
+      </div>
+    <div *ngIf="shoppingCart.cars.length === 0">
+      <p>Your cart is empty. Add some cars to proceed to checkout.</p>
+    </div>
+  </div>
+  

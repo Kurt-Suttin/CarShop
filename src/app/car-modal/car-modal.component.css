@@ -1,0 +1,13 @@
+.custom-modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%; /* Adjust the width as needed */
+    max-width: 1000px; /* Adjust the max-width as needed */
+    background-color: hsla(0, 0%, 100%, 0); /* Modal background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Box shadow for some depth */
+    padding: 50px; /* Padding inside the modal */
+    z-index: 1; /* Ensure the modal is above other content */
+  }
